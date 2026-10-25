@@ -1,0 +1,317 @@
+/* 假浏览器整体:2004 年代桌面感 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'SimSun', '宋体', 'Microsoft YaHei', serif;
+  font-size: 14px;
+  background: #3a6ea5;
+  color: #222;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* —— 浏览器工具栏 —— */
+.chrome {
+  position: relative;
+  background: linear-gradient(#f7f6f3, #d6d3ce);
+  border-bottom: 1px solid #9a968f;
+  padding: 6px 8px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.btn {
+  font: inherit;
+  padding: 3px 10px;
+  background: #f1efe9;
+  border: 1px solid #8b867e;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #e8f1fb;
+}
+
+.btn.go {
+  background: #dce9f7;
+  font-weight: bold;
+}
+
+.btn.star {
+  color: #b8860b;
+}
+
+.addr {
+  flex: 1;
+  font: inherit;
+  padding: 3px 8px;
+  border: 1px solid #8b867e;
+  border-radius: 3px;
+  background: #fff;
+  outline: none;
+}
+
+.addr:focus {
+  border-color: #3a6ea5;
+  box-shadow: 0 0 2px #3a6ea5;
+}
+
+.side-panel {
+  position: absolute;
+  top: 100%;
+  left: 8px;
+  right: 8px;
+  z-index: 10;
+  display: flex;
+  gap: 16px;
+  background: #f7f6f3;
+  border: 1px solid #9a968f;
+  border-top: none;
+  padding: 8px 12px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.panel-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.panel-col h4 {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.panel-link {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* —— 页面区域 —— */
+.page-area {
+  flex: 1;
+  overflow: auto;
+  padding: 24px 16px;
+}
+
+.site-page {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #9a968f;
+  padding: 24px 32px 40px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.site-page h1 {
+  font-size: 22px;
+  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+a {
+  color: #0000cc;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+.dim {
+  color: #777;
+}
+
+.url-line {
+  color: #0a7d0a;
+  font-size: 12px;
+}
+
+.snippet {
+  font-size: 13px;
+}
+
+/* 门户 */
+.link-list {
+  padding-left: 20px;
+  line-height: 1.9;
+}
+
+/* 论坛 */
+.thread-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.thread-table th,
+.thread-table td {
+  border: 1px solid #bbb;
+  padding: 6px 10px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.thread-table th {
+  background: #e8e6e1;
+}
+
+.post {
+  margin-bottom: 20px;
+}
+
+.post-meta {
+  color: #444;
+  font-size: 12px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 2px;
+}
+
+.deleted {
+  color: #999;
+  font-style: italic;
+}
+
+.post-attach {
+  margin: 12px 0;
+}
+
+.post-attach img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  display: block;
+}
+
+.post-attach figcaption {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* 搜索页 */
+.search-box {
+  display: flex;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.query {
+  flex: 1;
+  font: inherit;
+  padding: 4px 8px;
+  border: 1px solid #8b867e;
+}
+
+.results {
+  padding-left: 24px;
+  line-height: 1.6;
+}
+
+.results li {
+  margin-bottom: 14px;
+}
+
+/* —— 幽灵页 —— */
+.ghost-page {
+  background: #0a0a0a;
+  border-color: #000;
+  color: #e8e8e8;
+  font-family: 'SimHei', '黑体', 'Microsoft YaHei', sans-serif;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.ghost-page h1 {
+  color: #b30000;
+  border-bottom-color: #333;
+  letter-spacing: 4px;
+}
+
+.ghost-page a {
+  color: #8ab4f8;
+}
+
+.ghost-footnote {
+  margin-top: 48px;
+  color: #2a2a2a;
+  font-size: 12px;
+  user-select: none;
+}
+
+/* —— 开发面板 —— */
+.devpanel {
+  position: fixed;
+  right: 8px;
+  top: 64px;
+  width: 340px;
+  max-height: 72vh;
+  overflow: auto;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid #444;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  padding: 10px;
+  z-index: 20;
+}
+
+.dev-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.dev-header a {
+  color: #8ab4f8;
+}
+
+.dev-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dev-actions .btn {
+  background: #333;
+  color: #ddd;
+  border-color: #555;
+}
+
+.dev-state {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.dev-section {
+  margin-bottom: 8px;
+}
+
+.dev-trace {
+  margin: 0;
+  padding-left: 18px;
+  max-height: 120px;
+  overflow: auto;
+  font-size: 11px;
+  color: #a5d6a5;
+}
+
+.dev-open {
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  z-index: 20;
+}
